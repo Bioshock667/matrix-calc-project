@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Matrix Editor</title>
+        <style>
+            #matrixContainer p{
+                color:red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='matrixContainer'>
+            <p>[</p>
+            <table><tbody><tr><td>
+                <input xindex="0" yindex="0" class='matrixField' type="number"/>
+            </td></tr></tbody>
+            </table>
+            <p>]</p>
+        </div>
+        <script>
+            var matrixContainer = document.getElementById("matrixContainer");
+            var inputs = document.getElementsByClassName("matrixField");
+            var innerTable = matrixContainer.getElementsByTagName("tbody")[0];
+            for(var i = 0; i < inputs.length; i++){
+                inputs[i].addEventListener('keydown', (e) => {
+                    console.log(e.currentTarget);
+                    var x =  new Number(e.currentTarget.getAttribute("xindex")),y = new Number(e.currentTarget.getAttribute("yindex"));
+                    if(e.key === "Tab"){
+                        if(getWidth() <= x + 1)
+                            console.log("I should add a new column");
+                        
+                    } else if (e.key == "Enter"){
+                        if(getHeight() <= y + 1)
+                        addRow();
+                    }
+                })    
+            }
+            function getHeight(){
+                return innerTable.getElementsByTagName("tr").length;
+            }
+            function getWidth(){
+                return innerTable.getElementsByTagName("tr")[0].getElementsByTagName("td").length;
+            }
+            function addRow(){
+                var newRowInd = getHeight();
+                var newRow = document.createElement("tr");
+                for(var i = 0; i < getWidth(); i++){
+                    newRow.innerHTML += "<td><input xindex="+i + " yindex="+newRowInd + " class='matrixField' type='number' />";
+                }
+                innerTable.appendChild(newRow);
+            }
+        </script>
+    </body>
+</html>

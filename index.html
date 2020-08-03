@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      #display {
+        height: 100px;
+        width: 300px;
+        background-color: aquamarine;
+      }
+      #calculator td {
+        border: 1px solid black;
+        border-radius: 10%;
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        background: rgb(63,171,251);
+  background: radial-gradient(circle, rgba(63,171,251,1) 10%, rgba(234,244,252,1) 86%);
+      }
+    </style>
+    <title>Matrix Calculator</title>
+  </head>
+  <body>
+    <div id="display"></div>
+    <table id="calculator">
+      <tr><td>inv</td><td>CE</td><td>C</td><td>+</td></tr>
+      <tr><td>9</td><td>8</td><td>7</td><td>-</td></tr>
+      <tr><td>6</td><td>5</td><td>4</td><td>*</td></tr>
+      <tr><td>3</td><td>2</td><td>1</td><td>/</td></tr>
+      <tr><td>+/-</td><td>0</td><td>.</td><td>Enter</td></tr>
+    </table>
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>
